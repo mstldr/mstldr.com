@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <head>
+        <title>Hero layout</title>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <header id="headerPlacement"></header>
+            <main>
+                <section class="loginPanel hidden">
+                    <h1>Login</h1>
+                    <label>Email</label>
+                    <input type="text" />
+                    <section>
+                        <button onclick="closeVerification()">BACK</button>
+                        <button>CONFIRM</button>
+                    </section>
+                </section>
+
+                <section class="registrationPanel hidden">
+                    <h1>Registration</h1>
+                    <label>Email</label>
+                    <input type="text" />
+                    <section>
+                        <button onclick="closeVerification()">BACK</button>
+                        <button>CONFIRM</button>
+                    </section>
+                </section>
+
+                <section class="textContent">
+                    <h1>Start app for your startup</h1>
+                    <p>Get your startup up and running in a fun way. Use our collaborative tools.</p>
+                    <p>If you have more questions just checkout our <a href="">FAQ</a> section</p>
+                    <button onclick="showVerification(true)">LOGIN</button>
+                    <button onclick="showVerification(false)">REGISTER</button>
+                </section>
+                <section class="imageContent">
+                    <img src="img/space.jpg" width="700" height="650" />
+                </section>
+
+                <section class="textContent">
+                    <h1>Be there or be square</h1>
+                    <p>Check our new application. Create event people can attend to or let others now of your attendace.</p>
+                    <p>You have two options <u>I'll be there</u> or <u>I'll be square</u></p> 
+                    <p>Use it as you like, for single event, for occurences or for office attendance</p>
+                    <button onclick="window.location.href = 'thereorsquare.html';">LEARN MORE</button>
+                    <button>CREATE EVENT</button>
+                </section>
+                <section class="imageContent">
+                    <img src="img/people.jpg" width="700" height="650" />
+                </section>
+
+                <section class="textContent">
+                    <h1>Are you part of our UFO club?</h1>
+                    <p>We have a community which focuses on UFO occurences.</p>
+                    <p>You can join our forum, just to check other people's stories or share your own.</p>
+                    <button>FORUM</button>
+                </section>
+                <section class="imageContent">
+                    <img src="img/ufo.jpg" width="700" height="650" />
+                </section>
+            </main>
+        <footer id="footerPlacement"></footer>
+        <script src="script/script.js"></script>
+    </body>
+</html>
