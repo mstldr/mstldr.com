@@ -27,5 +27,9 @@ function closeVerification(){
 
 }
 
-document.getElementById("footerPlacement").innerHTML = "<p>Here's something about us. Our info and contact</p>"
-document.getElementById("headerPlacement").innerHTML = "<h3 id=\"logo\">MSTLDR</h3><nav id=\"menu\"><a href=\"index.html\">Home</a><a href=\"\">About</a><a href=\"\">Blog</a></nav>"
+function redirect(){
+    window.location.href = "wcf.html"; 
+}
+
+document.getElementById("footerPlacement").innerHTML = "<p>This website is still being worked on</p>"
+document.getElementById("headerPlacement").innerHTML = "<h3 id=\"logo\">MSTLDR</h3><nav id=\"menu\"><a href=\"index.html\">Home</a><a href=\"\">About</a><a href=\"\">Contact</a></nav>"
