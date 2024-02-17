@@ -8,10 +8,69 @@
         <header id="headerPlacement"></header>
             <main>
                 <section>
-                    <h1>TLDR of WCF</h1>
-                    <p>You want a service, that communicates with other services or clients</p>
-                    <p>Communication over protocols of your choice such as <b>HTTP</b>, <b>HTTPS</b>, <b>TCP</b>, <b>P2P</b>, <b>named pipes</b>,<b>MSMQ</b>,<b>Custom</b></p>
+                    <h1>WCF - Windows Communication Foundation</h1>
+                    <br>
+                    <h3>WHY</h3>
+                    <p>You want a service, that communicates with other services or clients via protocols of your choice such as <b>HTTP</b>, <b>HTTPS</b>, <b>TCP</b>, <b>P2P</b>, <b>named pipes</b>,<b>MSMQ</b>,<b>Custom</b>.</p>
                     <p>You need to host your WCF service, your choices are <b>IIS</b>,<b>Windows service</b>,<b>WAS</b>,<b>Self-hosting</b>(console app, wpf, winforms etc.)</p>
+                    <h3>HOW</h3>
+                    <div class="expandable">
+                        <div class="header" onclick="toggleContent()">Click to expand</div>
+                        <div class="content" id="content" style="display:none;">
+                            <h4>Self-hosting (console app) with communication over http</h4>
+                            <div class="code-block">
+                                <pre>
+                                    <code>
+                        //Add using
+                        using System.ServiceModel;
+        
+                        //Define a service contract
+                        [ServiceContract]
+                        public interface IMyService
+                        {
+                            [OperationContract]
+                            string GetData(int value);
+                        }
+                        
+                        //Implement the service contract
+                        public class MyService : IMyService
+                        {
+                            public string GetData(int value)
+                            {
+                                return string.Format("You entered: {0}", value);
+                            }
+                        }
+                        
+                        //Host the service in a console application
+                        class Program
+                        {
+                            static void Main(string[] args)
+                            {
+                                // Create a URI to serve as the base address
+                                Uri baseAddress = new Uri("http://localhost:8080/MyService");
+                        
+                                // Create a ServiceHost instance
+                                using (ServiceHost host = new ServiceHost(typeof(MyService), baseAddress))
+                                {
+                                        // Add a service endpoint
+                                        host.AddServiceEndpoint(typeof(IMyService), new BasicHttpBinding(), "");
+        
+                                        // Open the ServiceHost to start listening for messages
+                                        host.Open();
+                                        Console.WriteLine("The service is ready at {0}", baseAddress);
+                                        Console.WriteLine("Press &lt;Enter&gt; to stop the service.");
+                                        Console.ReadLine();
+                        
+                                        // Close the ServiceHost
+                                        host.Close();
+                                }
+                            }
+                        }
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </main>
         <footer id="footerPlacement"></footer>

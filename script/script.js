@@ -31,5 +31,14 @@ function redirect(){
     window.location.href = "wcf.html"; 
 }
 
-document.getElementById("footerPlacement").innerHTML = "<p>This website is still being worked on</p>"
+function toggleContent() {
+    var content = document.getElementById("content");
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+
+document.getElementById("footerPlacement").innerHTML = "<p>Hey, I'm still working on this website</p>"
 document.getElementById("headerPlacement").innerHTML = "<h3 id=\"logo\">MSTLDR</h3><nav id=\"menu\"><a href=\"index.html\">Home</a><a href=\"\">About</a><a href=\"\">Contact</a></nav>"
